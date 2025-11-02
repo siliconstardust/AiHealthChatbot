@@ -1,0 +1,511 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey
+    - good morning
+    - good evening
+    - hi there
+    - hello there
+    - greetings
+    - hey bot
+    - good afternoon
+    - namaste
+    - नमस्ते
+    - namaskar
+    - नमस्कार
+    
+- intent: calculate_bmi
+  examples: |
+    - calculate my bmi
+    - bmi calculator
+    - check my bmi
+    - what is my bmi
+    - calculate bmi
+    - find my bmi
+    - i want to calculate bmi
+    - bmi check
+    - body mass index
+    - check body mass index
+    - am i overweight
+    - am i underweight
+    - check my weight status
+    - calculate body mass index
+    - bmi calculation
+    - measure bmi
+    
+- intent: ask_health_question
+  examples: |
+    - what is malaria
+    - tell me about malaria
+    - malaria information
+    - malaria symptoms
+    - I have malaria
+    - malaria treatment
+    - how to prevent malaria
+    - malaria info
+    - tell me about dengue
+    - what is dengue
+    - dengue information
+    - dengue symptoms
+    - what is typhoid
+    - typhoid information
+    - typhoid symptoms
+    - cholera information
+    - what is cholera
+    - I have fever and chills
+    - mosquito disease
+    - tell me about tuberculosis
+    - what is TB
+    - tuberculosis symptoms
+    - what is diabetes
+    - diabetes information
+    - tell me about diabetes
+    - what is hypertension
+    - high blood pressure
+    - blood pressure information
+    - what is asthma
+    - asthma symptoms
+    - tell me about asthma
+    - what is cancer
+    - cancer symptoms
+    - tell me about cancer
+    - what is pcod
+    - pcod symptoms
+    - pcos information
+    - tell me about pcod
+    - what is thyroid
+    - thyroid symptoms
+    - thyroid problem
+    - what is jaundice
+    - jaundice symptoms
+    - what is hepatitis
+    - hepatitis information
+    - what is chickenpox
+    - chickenpox symptoms
+    - what is measles
+    - measles symptoms
+    - what is mumps
+    - mumps symptoms
+    - what is migraine
+    - migraine symptoms
+    - tell me about migraine
+    - what is headache
+    - headache causes
+    - what is back pain
+    - back pain causes
+    - what is knee pain
+    - knee pain causes
+    - leg pain information
+    - heart disease
+    - stroke symptoms
+    - kidney disease
+    - liver disease
+    - anemia symptoms
+    - what is anemia
+    - obesity information
+    - flu symptoms
+    - pneumonia symptoms
+    - arthritis information
+    - malaria
+    - i have malaria
+    - tell about malaria
+    - info on malaria
+    - malaria details
+    
+- intent: ask_symptom
+  examples: |
+    - I have fever
+    - I have headache
+    - I have cough
+    - I am feeling sick
+    - I have body pain
+    - I have stomach ache
+    - my head hurts
+    - I have leg pain
+    - my knee hurts
+    - I have chest pain
+    - I am having breathing problems
+    - I feel breathless
+    - I have sore throat
+    - I am vomiting
+    - I have diarrhea
+    - I have cold
+    - I am feeling weak
+    - check my symptoms
+    - symptom checker
+    - I have back pain
+    - my throat hurts
+    - throat pain
+    - throat infection
+    - I have nausea
+    - feeling dizzy
+    - I have rash
+    - skin rash
+    - joint pain
+    - muscle pain
+    
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - talk to you later
+    - gotta go
+    - catch you later
+    - bye bye
+    - take care
+    - see ya
+    - धन्यवाद
+    - thank you
+    - thanks
+
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yup
+    - sure
+    - of course
+    - absolutely
+    - correct
+    - right
+    - that's right
+    - sounds good
+    - ok
+    - okay
+    - हाँ
+    - ହଁ
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - not really
+    - never
+    - no way
+    - not at all
+    - negative
+    - I don't think so
+    - नहीं
+    - ନା
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you human?
+    - am I talking to a bot?
+    - are you a real person?
+    - who are you
+    - what are you
+
+- intent: set_language
+  examples: |
+    - change language to hindi
+    - speak in hindi
+    - हिंदी में बात करो
+    - change to odia
+    - odia language
+    - ଓଡ଼ିଆରେ କୁହ
+    - english please
+    - switch to english
+
+- intent: health_checkup
+  examples: |
+    - start health checkup
+    - start a health checkup
+    - start health chekup
+    - begin daily health checkup
+    - check my health today
+    - I want to do a health check
+    - can you check my health
+    - daily checkup
+    - health check
+    - do a checkup
+    - स्वास्थ्य जांच शुरू करें
+    - मेरी सेहत चेक करो
+
+- intent: symptom_report
+  examples: |
+    - I have a [headache](symptom)
+    - I feel [dizzy](symptom)
+    - I have [fever](symptom)
+    - I am feeling [sick](symptom)
+    - My [stomach](symptom) hurts
+    - I have [cough](symptom)
+    - I have [sore throat](symptom)
+    - I'm experiencing [nausea](symptom)
+    - I have [body aches](symptom)
+    - I feel [tired](symptom)
+    - I have [chills](symptom)
+    - My head is [aching](symptom)
+    - I have [runny nose](symptom)
+    - I feel [weakness](symptom)
+    - I have [chest pain](symptom)
+    - मुझे [बुखार](symptom) है
+    - मेरे [सिर में दर्द](symptom) है
+    - [खांसी](symptom) हो रही है
+    - i have throat pain
+    - my throat hurts
+    - throat is paining
+    - throat ache
+    - pain in throat
+    - sore throat problem
+    - throat infection
+
+- intent: flu_symptoms
+  examples: |
+    - what are the symptoms of flu
+    - tell me about flu symptoms
+    - how do I know if I have flu
+    - flu symptoms
+    - signs of flu
+    - what does flu feel like
+    - how to identify flu
+    - symptoms of influenza
+    - what are flu signs
+    - can you list flu symptoms
+    - फ्लू के लक्षण क्या हैं
+
+- intent: ask_hydration_info
+  examples: |
+    - what about hydration
+    - tell me about hydration
+    - how much water should I drink
+    - dehydration symptoms
+    - am I dehydrated
+    - my urine is dark yellow
+    - hydration tips
+    - how to stay hydrated
+    - पानी कितना पीना चाहिए
+
+- intent: ask_who_data
+  examples: |
+    - give me WHO data
+    - what does WHO say
+    - WHO health information
+    - show me WHO data
+    - get health data from WHO
+    - WHO statistics
+    - world health organization data
+    - covid statistics
+    - coronavirus data
+    - global health data
+
+- intent: ask_disease_info
+  examples: |
+    - tell me about diabetes
+    - what is hypertension
+    - give me info about covid
+    - information about flu
+    - what causes malaria
+    - tell me about dengue
+    - what is tuberculosis
+    - explain cancer to me
+    - मधुमेह के बारे में बताओ
+    - डेंगू क्या है
+
+- intent: ask_health_news
+  examples: |
+    - latest health news
+    - health news today
+    - what's new in health
+    - recent health updates
+    - show me health headlines
+    - any health news
+    - current health topics
+
+- intent: ask_vaccination_info
+  examples: |
+    - vaccination data
+    - how many people are vaccinated
+    - vaccine statistics
+    - vaccination rates
+    - covid vaccine data
+    - show vaccination numbers
+
+- intent: ask_vaccination_schedule
+  examples: |
+    - vaccination schedule
+    - when should I get vaccinated
+    - vaccine schedule for baby
+    - infant vaccination
+    - child vaccination schedule
+    - adult vaccination
+    - covid vaccine schedule
+    - when to vaccinate child
+    - टीकाकरण कार्यक्रम
+    - बच्चे को टीका कब लगवाएं
+    - vaccination chart
+    - immunization schedule
+
+- intent: ask_government_data
+  examples: |
+    - government health data
+    - show government statistics
+    - india health data
+    - odisha health data
+    - government health schemes
+    - ayushman bharat
+    - health ministry data
+    - सरकारी स्वास्थ्य योजनाएं
+    - show PHC near me
+    - government hospital
+
+- intent: ask_outbreak_alerts
+  examples: |
+    - disease outbreak
+    - any health alerts
+    - outbreak in my area
+    - disease alert
+    - dengue outbreak
+    - malaria cases
+    - health warnings
+    - क्या कोई बीमारी फैल रही है
+    - current health alerts
+    - epidemic warning
+
+- intent: ask_preventive_care
+  examples: |
+    - how to prevent diabetes
+    - prevention of dengue
+    - how to avoid malaria
+    - prevent heart disease
+    - how to stay healthy
+    - preventive healthcare
+    - disease prevention
+    - मधुमेह से कैसे बचें
+    - डेंगू से बचाव
+    - स्वस्थ कैसे रहें
+    - prevention tips
+
+- intent: ask_general_health
+  examples: |
+    - how much water should I drink
+    - how much sleep do I need
+    - how to prevent diabetes
+    - what is a healthy diet
+    - how to lose weight
+    - how to gain weight
+    - what is normal blood pressure
+    - how to reduce stress
+    - what is BMI
+    - how much exercise do I need
+    - what is cholesterol
+    - how to prevent heart disease
+    - what are healthy foods
+    - vitamin d benefits
+    - importance of fiber
+    - what causes anxiety
+    - mental health tips
+    - healthy lifestyle
+    - nutrition advice
+    - fitness tips
+    - स्वस्थ आहार क्या है
+    - कितना पानी पीना चाहिए
+    - व्यायाम कितना करना चाहिए
+    
+- intent: check_symptoms
+  examples: |
+    - check my symptoms
+    - symptom checker
+    - what could be wrong with me
+    - analyze my symptoms
+    - what disease do I have
+    - diagnose my symptoms
+    - I have multiple symptoms
+    - check what's wrong
+    - मेरे लक्षणों की जांच करो
+
+- intent: ask_medication_info
+  examples: |
+    - tell me about paracetamol
+    - what is ibuprofen used for
+    - medication information
+    - drug information
+    - what does aspirin do
+    - side effects of cetirizine
+    - how to take amoxicillin
+    - medicine information
+    - दवा की जानकारी
+
+- intent: inform
+  examples: |
+    - my weight is 70 kg
+    - I am 170 cm tall
+    - 25 years old
+    - male
+    - female
+    - my temperature is 99
+    - pain level 5
+    - feeling anxious
+    - I have fever and cough
+    - 98.6
+    - normal temperature
+    - happy
+    - sad
+    - no pain
+    - headache and fever
+
+- synonym: headache
+  examples: |
+    - head pain
+    - migraine
+    - head ache
+    - सिर दर्द
+
+- synonym: fever
+  examples: |
+    - high temperature
+    - temperature
+    - hot body
+    - बुखार
+
+- synonym: cough
+  examples: |
+    - coughing
+    - dry cough
+    - wet cough
+    - खांसी
+
+- synonym: nausea
+  examples: |
+    - feeling sick
+    - want to vomit
+    - queasy
+    - मतली
+
+- regex: temperature
+  examples: |
+    - \d{2,3}(\.\d)?
+    - (normal|low|high)
+
+- regex: pain
+  examples: |
+    - [0-9]|10
+
+- lookup: diseases
+  examples: |
+    - diabetes
+    - hypertension
+    - dengue
+    - malaria
+    - tuberculosis
+    - covid
+    - flu
+    - cancer
+    - asthma
+    - pcod
+    - pcos
+    - thyroid
+    - jaundice
+    - hepatitis
+    - chickenpox
+    - measles
+    - mumps
+    - migraine
+    - typhoid
+    - cholera

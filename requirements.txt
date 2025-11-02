@@ -1,0 +1,70 @@
+# === Core Dependencies (Compatible with Rasa 3.6.13) ===
+rasa==3.6.13
+rasa-sdk==3.6.2
+
+# === HTTP Requests ===
+requests==2.31.0
+
+# === OpenAI (Optional - for advanced queries) ===
+openai==1.3.0
+
+# === Twilio (for WhatsApp/SMS integration) ===
+# Compatible with Rasa 3.6.x
+twilio==8.2.2
+gradio==3.20.0
+# Add any other dependencies here
+
+# === Translation (for multilingual support) ===
+googletrans==4.0.0rc1
+langdetect==1.0.9
+
+# === Data Processing ===
+pandas==2.1.3
+numpy==1.24.3  # works fine with Rasa 3.6.x and Python 3.10
+
+# === Database ===
+SQLAlchemy==1.4.49   # downgraded for Rasa compatibility
+psycopg2-binary==2.9.9
+
+# === Analytics ===
+matplotlib==3.5.3    # compatible with Rasa
+seaborn==0.13.0
+
+# === Monitoring ===
+prometheus-client==0.19.0
+
+# === Security ===
+cryptography==41.0.7
+
+# === Environment Variables ===
+python-dotenv==1.0.0
+
+# === Testing ===
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# === Load Testing ===
+locust==2.19.1
+
+# === Web Server (for deployment) ===
+gunicorn==21.2.0
+
+# === CORS Support ===
+flask-cors==4.0.0
+
+# === Logging ===
+colorlog==6.8.0
+
+# === Date/Time Utilities ===
+python-dateutil==2.8.2
+
+# === Redis (for distributed deployments) ===
+redis==4.6.0   # FIXED: compatible with Rasa 3.6.x
+
+# === Background Tasks ===
+celery==5.3.4
+
+# === API Documentation ===
+apispec==6.3.1
+
+# === UI/Interface (Opt

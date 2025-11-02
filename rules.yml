@@ -1,0 +1,120 @@
+version: "3.1"
+
+rules:
+- rule: Greet the user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Say goodbye anytime
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Respond to bot challenge
+  steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+
+- rule: Provide flu symptoms information
+  steps:
+    - intent: flu_symptoms
+    - action: utter_flu_symptoms
+
+- rule: Provide hydration information
+  steps:
+    - intent: ask_hydration_info
+    - action: utter_ask_hydration_info
+
+- rule: Fetch WHO health data
+  steps:
+    - intent: ask_who_data
+    - action: action_fetch_health_data
+
+- rule: Answer health questions
+  steps:
+    - intent: ask_health_question
+    - action: action_answer_health_question
+
+- rule: Check symptoms
+  steps:
+    - intent: ask_symptom
+    - action: action_symptom_checker
+
+- rule: Respond to symptom reports
+  steps:
+    - intent: symptom_report
+    - action: action_respond_symptom
+
+- rule: Get vaccination schedule
+  steps:
+    - intent: ask_vaccination_schedule
+    - action: action_vaccination_schedule
+
+- rule: Fetch government health data
+  steps:
+    - intent: ask_government_data
+    - action: action_fetch_government_data
+
+- rule: Get outbreak alerts
+  steps:
+    - intent: ask_outbreak_alerts
+    - action: action_outbreak_alerts
+
+- rule: Get preventive healthcare advice
+  steps:
+    - intent: ask_preventive_care
+    - action: action_preventive_healthcare
+
+- rule: Get medication information
+  steps:
+    - intent: ask_medication_info
+    - action: action_medication_info
+
+- rule: Answer general health questions
+  steps:
+    - intent: ask_general_health
+    - action: action_answer_health_question
+
+- rule: Fetch disease information
+  steps:
+    - intent: ask_disease_info
+    - action: action_answer_health_question
+
+- rule: Set language preference
+  steps:
+    - intent: set_language
+    - action: action_set_language
+
+- rule: Activate health checkup form
+  steps:
+    - intent: health_checkup
+    - action: health_checkup_form
+    - active_loop: health_checkup_form
+
+- rule: Submit health checkup form
+  condition:
+    - active_loop: health_checkup_form
+  steps:
+    - action: health_checkup_form
+    - active_loop: null
+    - action: action_submit_checkup
+
+- rule: Activate BMI form
+  steps:
+    - intent: calculate_bmi
+    - action: bmi_form
+    - active_loop: bmi_form
+
+- rule: Submit BMI form
+  condition:
+    - active_loop: bmi_form
+  steps:
+    - action: bmi_form
+    - active_loop: null
+    - action: action_calculate_bmi
+
+- rule: Fallback when bot doesn't understand
+  steps:
+    - intent: nlu_fallback
+    - action: utter_default

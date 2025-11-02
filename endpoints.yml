@@ -1,0 +1,42 @@
+# Endpoints configuration for Rasa
+# Smart India Hackathon 2025
+
+# Action server endpoint
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Tracker store (for conversation history)
+tracker_store:
+  type: sql
+  dialect: "sqlite"  # Use PostgreSQL in production
+  db: "tracker_store.db"
+  # For PostgreSQL in production:
+  # dialect: "postgresql"
+  # url: "postgresql://user:password@localhost/rasa"
+  # username: "your_username"
+  # password: "your_password"
+
+# Event broker (for analytics and monitoring)
+# event_broker:
+#   type: sql
+#   dialect: "sqlite"
+#   db: "events.db"
+  # For production with Kafka:
+  # type: kafka
+  # url: localhost
+  # topic: rasa_events
+  # client_id: rasa-producer
+
+# Model server (for loading models from cloud)
+# models:
+#   url: "http://localhost:5002"
+#   token: "your_model_server_token"
+#   wait_time_between_pulls: 10
+
+# Lock store (for distributed deployments)
+# lock_store:
+#   type: "redis"
+#   url: "localhost"
+#   port: 6379
+#   password: "your_redis_password"
+#   db: 0

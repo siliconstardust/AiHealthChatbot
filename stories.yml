@@ -1,0 +1,109 @@
+version: "3.1"
+
+stories:
+- story: greet and ask health question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_health_question
+  - action: action_answer_health_question
+
+- story: direct health question about malaria
+  steps:
+  - intent: ask_health_question
+  - action: action_answer_health_question
+
+- story: symptom inquiry
+  steps:
+  - intent: ask_symptom
+  - action: action_symptom_checker
+
+- story: symptom report
+  steps:
+  - intent: symptom_report
+  - action: action_respond_symptom
+
+- story: vaccination schedule inquiry
+  steps:
+  - intent: ask_vaccination_schedule
+  - action: action_vaccination_schedule
+
+- story: government data request
+  steps:
+  - intent: ask_government_data
+  - action: action_fetch_government_data
+
+- story: disease information
+  steps:
+  - intent: ask_disease_info
+  - action: action_answer_health_question
+
+- story: medication inquiry
+  steps:
+  - intent: ask_medication_info
+  - action: action_medication_info
+
+- story: outbreak alerts
+  steps:
+  - intent: ask_outbreak_alerts
+  - action: action_outbreak_alerts
+
+- story: preventive care
+  steps:
+  - intent: ask_preventive_care
+  - action: action_preventive_healthcare
+
+- story: general health question
+  steps:
+  - intent: ask_general_health
+  - action: action_answer_health_question
+
+- story: check symptoms
+  steps:
+  - intent: check_symptoms
+  - action: action_symptom_checker
+
+- story: BMI calculation
+  steps:
+  - intent: calculate_bmi
+  - action: bmi_form
+  - active_loop: bmi_form
+  - active_loop: null
+  - action: action_calculate_bmi
+
+- story: health checkup
+  steps:
+  - intent: health_checkup
+  - action: health_checkup_form
+  - active_loop: health_checkup_form
+  - active_loop: null
+  - action: action_submit_checkup
+
+- story: set language preference
+  steps:
+  - intent: set_language
+  - action: action_set_language
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: user asks about malaria directly
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform
+  - action: action_answer_health_question
+
+- story: combined symptoms and disease query
+  steps:
+  - intent: ask_symptom
+  - action: action_symptom_checker
+  - intent: ask_health_question
+  - action: action_answer_health_question

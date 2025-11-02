@@ -1,0 +1,212 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - health_checkup
+  - flu_symptoms
+  - symptom_report
+  - ask_who_data
+  - ask_hydration_info
+  - ask_disease_info
+  - ask_health_news
+  - ask_vaccination_info
+  - check_symptoms
+  - ask_medication_info
+  - ask_general_health
+  - set_language
+  - ask_vaccination_schedule
+  - ask_government_data
+  - ask_outbreak_alerts
+  - ask_preventive_care
+  - calculate_bmi
+  - ask_health_question
+  - inform
+  - ask_symptom
+  - nlu_fallback   
+  
+
+
+entities:
+  - symptom
+  - disease
+  - location
+  - age
+  - language
+
+slots:
+  temperature:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_checkup_form
+            requested_slot: temperature
+
+  mood_level:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_checkup_form
+            requested_slot: mood_level
+
+  pain_score:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_checkup_form
+            requested_slot: pain_score
+
+  symptom_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_checkup_form
+            requested_slot: symptom_name
+
+  language:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+  location:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: location
+
+  weight:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: bmi_form
+            requested_slot: weight
+  
+  height:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: bmi_form
+            requested_slot: height
+  
+  age:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: bmi_form
+            requested_slot: age
+  
+  gender:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: bmi_form
+            requested_slot: gender
+
+
+forms:
+  health_checkup_form:
+    required_slots:
+      - temperature
+      - mood_level
+      - pain_score
+      - symptom_name
+  bmi_form:
+    required_slots:
+      - weight
+      - height
+      - age
+      - gender
+
+actions:
+  - validate_health_checkup_form
+  - action_submit_checkup
+  - action_suggest_remedy_final
+  - action_fetch_health_data
+  - action_respond_symptom
+  - action_fetch_disease_info
+  - action_fetch_health_news
+  - action_fetch_vaccination_data
+  - action_symptom_checker
+  - action_medication_info
+  - action_answer_health_question
+  - action_set_language
+  - action_vaccination_schedule
+  - action_fetch_government_data
+  - action_outbreak_alerts
+  - action_preventive_healthcare
+  
+
+  
+  - validate_bmi_form
+  - action_calculate_bmi
+
+responses:
+  utter_greet:
+    - text: "Hello! 🙏 I'm your health awareness assistant. How can I help you today?\n\nनमस्ते! मैं आपका स्वास्थ्य सहायक हूं।\nनमस्कार! मी तुमचा आरोग्य सहाय्यक आहे."
+
+  utter_goodbye:
+    - text: "Take care! Stay healthy. 🏥\n\nस्वस्थ रहें!\nनिरोगी राहा!"
+
+  utter_iamabot:
+    - text: "I am a health awareness bot, powered by RASA for Smart India Hackathon 2025. 🇮🇳"
+
+  utter_ask_temperature:
+    - text: "What is your current body temperature in °F? (e.g., 98.6 or 'normal')\n\nआपका शरीर का तापमान क्या है?\nतुमचे शरीराचे तापमान किती आहे?"
+
+  utter_ask_mood_level:
+    - text: "How would you rate your mood today? (Happy, Neutral, Sad, Anxious)\n\nआज आपका मूड कैसा है?\nआज तुमचा मूड कसा आहे?"
+
+  utter_ask_pain_score:
+    - text: "On a scale of 1 to 10 (10 being severe), how would you rate any pain? (Say 0 if no pain)\n\nदर्द का स्तर बताएं (0-10)?\nवेदना पातळी सांगा (0-10)?"
+
+  utter_ask_symptom_name:
+    - text: "What symptoms are you experiencing? (e.g., headache, fever, cough)\n\nआपके लक्षण क्या हैं?\nतुमची लक्षणे काय आहेत?"
+
+  utter_flu_symptoms:
+    - text: "Common flu symptoms include: fever, body aches, fatigue, cough, sore throat, and headache. If you have these, rest and stay hydrated. Consult a doctor if symptoms worsen.\n\n📞 National Health Helpline: 1075"
+
+  utter_ask_hydration_info:
+    - text: "Dark yellow urine often indicates dehydration. You should increase your fluid intake, especially water (8-10 glasses daily). If the color persists, please consult a healthcare professional.\n\n💧 Stay hydrated!"
+
+  utter_default:
+    - text: "I didn't understand that. You can ask me about:\n• Health checkup\n• Symptoms\n• Vaccination schedule\n• Disease prevention\n• Government health data\n\n📞 For emergencies: 108/102"
+
+  utter_eye_infection:
+    - text: "👁️ **Eye Infection Management:**\n\n**Immediate Care:**\n• DO NOT rub or touch eyes\n• Wash hands before touching eyes\n• Clean discharge with clean, damp cloth\n• Remove contact lenses\n• Avoid eye makeup\n\n**Home Care:**\n• Use clean, warm compress\n• Keep eyes clean\n• Don't share towels/pillows\n\n**When to See Doctor:**\n• Severe pain or vision changes\n• Sensitivity to light\n• Green/yellow discharge\n• Not improving in 2-3 days\n\n📞 Emergency: 102/108\n🏥 Visit nearest eye hospital\n📱 Helpline: 1075"
+
+  utter_ask_weight:
+    - text: "What is your weight in kilograms (kg)?\n\nआपका वजन कितना है (किलो में)?\nतुमचे वजन किती आहे (किलोमध्ये)?"
+  
+  utter_ask_height:
+    - text: "What is your height in centimeters (cm)?\n\nआपकी लंबाई कितनी है (सेंटीमीटर में)?\nतुमची उंची किती आहे (सेंटीमीटरमध्ये)?"
+  
+  utter_ask_age:
+    - text: "What is your age in years?\n\nआपकी उम्र कितनी है?\nतुमचे वय किती आहे?"
+  
+  utter_ask_gender:
+    - text: "What is your gender? (Male/Female/Other)\n\nलिंग बताएं (पुरुष/महिला/अन्य)\nतुमचे लिंग (पुरुष/स्त्री/इतर)"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
