@@ -1,5 +1,3 @@
-FROM rasa/rasa:3.6.2
-
 WORKDIR /app
 
 # Copy all files
