@@ -16,7 +16,8 @@ gradio==3.20.0
 
 # === Translation (for multilingual support) ===
 # replaced old googletrans (which required httpx==0.13.3)
-googletrans-temp-fix==4.0.0
+deep-translator==1.11.4
+
 langdetect==1.0.9
 
 # === Data Processing ===
@@ -71,4 +72,5 @@ packaging>=21.3
 
 # === Utility ===
 aiohttp==3.9.1
+
 
