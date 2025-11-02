@@ -4,22 +4,18 @@ rasa-sdk==3.6.2
 
 # === HTTP Requests ===
 requests==2.31.0
-httpx==0.25.2   # compatible with openai & gradio
 
 # === OpenAI (Optional - for advanced queries) ===
 openai==1.3.0
 
 # === Twilio (for WhatsApp/SMS integration) ===
-# Compatible with Rasa 3.6.x
 twilio==8.2.2
 
 # === UI Interface ===
 gradio==3.20.0
 
 # === Translation (for multilingual support) ===
-# googletrans replaced with googletrans-temp-fix for modern httpx support
-googletrans==4.0.0-rc1
-
+deep-translator==1.11.4
 langdetect==1.0.9
 
 # === Data Processing ===
@@ -70,4 +66,3 @@ celery==5.3.4
 
 # === API Documentation ===
 apispec==6.3.1
-
