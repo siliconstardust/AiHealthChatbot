@@ -1,33 +1,20 @@
-FROM python:3.9-slim
+# Use official Rasa image as base
+FROM rasa/rasa:3.6.13-full
 
+# Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
+# Copy ALL project files including data directory
+COPY . /app
 
-# Copy requirements
-COPY requirements.txt .
+# Install additional dependencies (not Rasa, it's already in base image)
+RUN pip install --no-cache-dir flask==3.0.2 requests==2.31.0 gunicorn==21.2.0
 
-# Upgrade pip
-RUN pip install --upgrade pip
-
-# Install dependencies one by one to catch errors
-RUN pip install --no-cache-dir rasa==3.6.13
-RUN pip install --no-cache-dir rasa-sdk==3.6.2
-RUN pip install --no-cache-dir flask==3.0.2
-RUN pip install --no-cache-dir requests==2.31.0
-RUN pip install --no-cache-dir gunicorn==21.2.0
-
-# Copy rest of application
-COPY . .
-
-# Train the Rasa model
+# Train the Rasa model (make sure data folder exists)
 RUN rasa train
 
-# Expose port
+# Expose Rasa server port
 EXPOSE 5005
 
-# Run command
+# Run Rasa server with API enabled
 CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
