@@ -1,13 +1,20 @@
+# Use official Rasa image as base
+FROM rasa/rasa:3.6.13
+
+# Set working directory
 WORKDIR /app
 
-# Copy all files
+# Copy project files
 COPY . /app
 
-# Install Twilio
-RUN pip install --no-cache-dir twilio==8.2.2
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port
+# Train the Rasa model
+RUN rasa train
+
+# Expose Rasa server port
 EXPOSE 5005
 
-# Fixed CMD - remove duplicate 'rasa'
-CMD ["run", "--enable-api", "--cors", "*", "--port", "5005", "--debug"]
+# Run Rasa server with API enabled
+CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
