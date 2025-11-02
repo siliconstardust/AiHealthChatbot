@@ -1,14 +1,23 @@
-# Use official Rasa image as base
-FROM rasa/rasa:3.6.13-full
+FROM python:3.9-slim
 
 WORKDIR /app
-COPY . /app
 
-# Install additional dependencies
-RUN pip install --no-cache-dir flask==3.0.2 requests==2.31.0 gunicorn==21.2.0
+# Copy requirements
+COPY requirements-simple.txt requirements.txt
 
-# Expose Rasa default port
-EXPOSE 5005
+# Upgrade pip
+RUN pip install --upgrade pip
 
-# Start Rasa server using your pre-trained model
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug"]
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application
+COPY app.py .
+COPY templates/ templates/
+COPY static/ static/
+
+# Expose port
+EXPOSE 5000
+
+# Run with gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "app:app"]
