@@ -18,7 +18,8 @@ gradio==3.20.0
 
 # === Translation (for multilingual support) ===
 # googletrans replaced with googletrans-temp-fix for modern httpx support
-googletrans-temp-fix==4.0.2
+googletrans==4.0.0-rc1
+
 langdetect==1.0.9
 
 # === Data Processing ===
@@ -69,3 +70,4 @@ celery==5.3.4
 
 # === API Documentation ===
 apispec==6.3.1
+
