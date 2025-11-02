@@ -2,12 +2,11 @@ FROM rasa/rasa:3.6.2
 
 WORKDIR /app
 
-# Copy requirements
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy all files
+# Copy all files first
 COPY . /app
+
+# Install only Twilio with compatible version
+RUN pip install --no-cache-dir twilio==8.2.2
 
 # Expose port
 EXPOSE 5005
