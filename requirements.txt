@@ -65,4 +65,8 @@ redis==4.6.0
 celery==5.3.4
 
 # === API Documentation ===
-apispec==6.3.1
+apispec>=6.3.1
+packaging>=21.3
+
+# === Utility ===
+aiohttp==3.9.1
