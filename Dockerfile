@@ -6,7 +6,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copy main application file
 COPY app.py .
@@ -16,3 +16,4 @@ EXPOSE 5000
 
 # Run app
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "app:app"]
+
