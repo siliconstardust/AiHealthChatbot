@@ -2,13 +2,11 @@
 
 ## 🩺 AI-Driven Public Health Chatbot — *HealthBot*
 
-### Problem Statement ID: 25049 | Smart India Hackathon 2025
 
 ### 👩‍💻 Developed By:
 
-* **Renuka Bagade** (RBT24CB024)
-* **Sanskruti Gutal** (RBT24CB006)
-* **Gauri Gundawar** (RBT24CB005)
+* **Renuka Bagade** 
+
 
 **Department:** Computer Science and Business Systems
 **Institute:** JSPM’s Rajarshi Shahu College of Engineering, Tathawade, Pune
@@ -144,5 +142,6 @@ Access the live bot here:
 ## 💬 Quote
 
 > “Let’s fight misinformation with AI-powered awareness — for healthier, safer communities.” 🌍
+
 
 
